@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant neon (&:is(.neon *)); 
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+
+}
+@layer base {
+  /* 🌞 Default Light Mode */
+  :root {
+    --background: #f5f5f5;
+    --foreground: #333333;
+    --primary: #007bff;
+    --secondary: #666666;
+    --accent: #ff9800;
+    --border: #dddddd;
+  }
+  /* 🔥 Neon Mode */
+  .neon {
+    --background: #000000;
+    --foreground: #00ff00;
+    --primary: #00ffff;
+    --secondary: #ff00ff;
+    --accent: #ffea00;
+    --border: #ff00ff;
+  }
+
+  /* 🌙 Dark Mode */
+  .dark {
+    --background: #121212;
+    --foreground: #ffffff;
+    --primary: #1e90ff;
+    --secondary: #cccccc;
+    --accent: #ff4081;
+    --border: #333333;
+  }
+
+}
+
+@layer base{
+  body{
+    @apply bg-background text-foreground;
+  }
+  .btn-primary {
+    @apply text-foreground bg-primary px-4 py-2 rounded;
+  }
+  .btn-secondary {
+    @apply text-primary bg-secondary px-4 py-2 rounded;
+  }
+  .btn-accent {
+    @apply text-secondary bg-accent px-4 py-2 rounded;
+  }
+  .card {
+    @apply border-2 border-border bg-background p-4 rounded-lg;
+  }
+  .container {
+    @apply max-w-4xl mx-auto p-4;
+  }
+  .header {
+    @apply text-4xl font-bold mb-6;
+  }
+  .footer {
+    @apply text-sm text-center mt-6;
+  }
+}

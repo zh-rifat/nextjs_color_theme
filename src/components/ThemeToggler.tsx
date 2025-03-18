@@ -39,7 +39,7 @@ const ThemeToggler = (props: Props) => {
   }, [theme])
 
   return (
-    <button className='btn-accent' onClick={changeTheme}>Change Theme</button>
+    <button className='btn-primary absolute top-8 right-8' onClick={changeTheme}>{theme[0].toUpperCase()}</button>
   )
 }
 
